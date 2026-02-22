@@ -84,7 +84,8 @@
     background: #1a1a2e;
 }
 
-.ctx-poster-link:hover .ctx-poster-container {
+.ctx-poster-link:hover .ctx-poster-container,
+.ctx-poster-link.ctx-touch-active .ctx-poster-container {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
@@ -97,7 +98,8 @@
     transition: opacity 0.3s ease;
 }
 
-.ctx-poster-link:hover .ctx-poster-img {
+.ctx-poster-link:hover .ctx-poster-img,
+.ctx-poster-link.ctx-touch-active .ctx-poster-img {
     opacity: 0.3;
 }
 
@@ -133,10 +135,13 @@
     color: #fff;
     text-align: center;
     z-index: 2;
+    pointer-events: none; /* don't intercept clicks/taps while invisible */
 }
 
-.ctx-poster-link:hover .ctx-overlay {
+.ctx-poster-link:hover .ctx-overlay,
+.ctx-poster-link.ctx-touch-active .ctx-overlay {
     opacity: 1;
+    pointer-events: auto; /* re-enable when visible */
 }
 
 .ctx-genre {
@@ -198,7 +203,8 @@
     transition: all 0.2s ease;
 }
 
-.ctx-poster-link:hover .ctx-cta {
+.ctx-poster-link:hover .ctx-cta,
+.ctx-poster-link.ctx-touch-active .ctx-cta {
     background: #fff;
     color: #1a1a2e;
 }
