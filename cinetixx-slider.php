@@ -3,7 +3,7 @@
  * Plugin Name: Cinetixx Movie Poster Slider
  * Plugin URI:  https://example.com
  * Description: Fetches movie data from the Cinetixx API and displays a poster slider via shortcode [cinetixx_slider].
- * Version:     1.1.0
+ * Version:     1.1.1
  * Author:      Murrlichtspiele
  * Text Domain: cinetixx-slider
  */
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
-define( 'CTX_SLIDER_VERSION', '1.1.0' );
+define( 'CTX_SLIDER_VERSION', '1.1.1' );
 define( 'CTX_SLIDER_PATH',    plugin_dir_path( __FILE__ ) );
 define( 'CTX_SLIDER_URL',     plugin_dir_url( __FILE__ ) );
 
