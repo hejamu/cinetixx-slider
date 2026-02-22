@@ -1,7 +1,12 @@
 /* ── Cinetixx Movie Poster Slider ─────────────────────────────────────────── */
 
 .ctx-slider-wrapper {
-    max-width: 1200px;
+    --ctx-max-width: 1200px;
+    --ctx-border-radius: 10px;
+    --ctx-accent-color: #e63946;
+    --ctx-nav-color: #333;
+
+    max-width: var(--ctx-max-width);
     margin: 2rem auto;
     padding: 0 1rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -32,9 +37,9 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid #333;
+    border: 2px solid var(--ctx-nav-color);
     background: transparent;
-    color: #333;
+    color: var(--ctx-nav-color);
     font-size: 1rem;
     cursor: pointer;
     display: flex;
@@ -45,7 +50,7 @@
 
 .ctx-prev:hover,
 .ctx-next:hover {
-    background: #333;
+    background: var(--ctx-nav-color);
     color: #fff;
 }
 
@@ -71,7 +76,7 @@
 
 .ctx-poster-container {
     position: relative;
-    border-radius: 10px;
+    border-radius: var(--ctx-border-radius);
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -110,7 +115,7 @@
 }
 
 .ctx-badge-3d {
-    background: #e63946;
+    background: var(--ctx-accent-color);
     color: #fff;
 }
 

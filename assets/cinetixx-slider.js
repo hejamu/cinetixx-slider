@@ -4,12 +4,13 @@
 document.addEventListener('DOMContentLoaded', function () {
     var config = window.ctxSliderConfig || {};
     var slidesPerView = parseInt(config.slidesPerView, 10) || 4;
+    var loop = !!config.loop;
 
     var swiper = new Swiper('.ctx-swiper', {
         slidesPerView: 2,
         spaceBetween: 16,
         grabCursor: true,
-        loop: false,
+        loop: loop,
         navigation: {
             prevEl: '.ctx-prev',
             nextEl: '.ctx-next',
