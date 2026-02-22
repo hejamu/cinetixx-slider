@@ -3,7 +3,7 @@
  * Plugin Name: Cinetixx Movie Poster Slider
  * Plugin URI:  https://example.com
  * Description: Fetches movie data from the Cinetixx API and displays a poster slider via shortcode [cinetixx_slider].
- * Version:     1.1.0
+ * Version:     1.1.1
  * Author:      Murrlichtspiele
  * Text Domain: cinetixx-slider
  */
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // ─── Constants ────────────────────────────────────────────────────────────────
-define( 'CTX_SLIDER_VERSION', '1.1.0' );
+define( 'CTX_SLIDER_VERSION', '1.1.1' );
 define( 'CTX_SLIDER_PATH',    plugin_dir_path( __FILE__ ) );
 define( 'CTX_SLIDER_URL',     plugin_dir_url( __FILE__ ) );
 
@@ -738,8 +738,9 @@ function ctx_slider_shortcode( $atts ) {
                     $first_link = ! empty( $upcoming ) ? $upcoming[0]['booking_link'] : '#';
                     ?>
                     <div class="swiper-slide ctx-slide">
-                        <a href="<?php echo esc_url( $first_link ); ?>" <?php echo $target_attr; ?>
-                           class="ctx-poster-link">
+                        <div class="ctx-poster-link"
+                             data-href="<?php echo esc_url( $first_link ); ?>"
+                             <?php if ( $link_new_tab ) : ?>data-target="_blank"<?php endif; ?>>
                             <div class="ctx-poster-container">
                                 <img src="<?php echo esc_url( $movie['poster'] ); ?>"
                                      alt="<?php echo esc_attr( $movie['title'] ); ?>"
@@ -779,8 +780,7 @@ function ctx_slider_shortcode( $atts ) {
                                                 <strong><?php echo esc_html( $date_label ); ?></strong>
                                                 <?php foreach ( $times as $t ) : ?>
                                                     <a href="<?php echo esc_url( $t['link'] ); ?>"
-                                                       class="ctx-time-link" <?php echo $target_attr; ?>
-                                                       onclick="event.stopPropagation();">
+                                                       class="ctx-time-link" <?php echo $target_attr; ?>>
                                                         <?php echo esc_html( $t['time'] ); ?>
                                                     </a>
                                                 <?php endforeach; ?>
@@ -794,7 +794,7 @@ function ctx_slider_shortcode( $atts ) {
                             <?php if ( $show_titles ) : ?>
                                 <h3 class="ctx-movie-title"><?php echo esc_html( $movie['title'] ); ?></h3>
                             <?php endif; ?>
-                        </a>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>

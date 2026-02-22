@@ -69,9 +69,9 @@
 }
 
 .ctx-poster-link {
-    text-decoration: none;
-    color: inherit;
     display: block;
+    color: inherit;
+    cursor: pointer;
 }
 
 .ctx-poster-container {
@@ -84,7 +84,8 @@
     background: #1a1a2e;
 }
 
-.ctx-poster-link:hover .ctx-poster-container {
+.ctx-poster-link:hover .ctx-poster-container,
+.ctx-poster-link.ctx-touch-active .ctx-poster-container {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
@@ -97,7 +98,8 @@
     transition: opacity 0.3s ease;
 }
 
-.ctx-poster-link:hover .ctx-poster-img {
+.ctx-poster-link:hover .ctx-poster-img,
+.ctx-poster-link.ctx-touch-active .ctx-poster-img {
     opacity: 0.3;
 }
 
@@ -128,15 +130,19 @@
     justify-content: center;
     align-items: center;
     padding: 1rem 0.75rem;
+    background: rgba(26, 26, 46, 0.85); /* dark backdrop so white text is always readable */
     opacity: 0;
     transition: opacity 0.3s ease;
     color: #fff;
     text-align: center;
     z-index: 2;
+    pointer-events: none; /* don't intercept clicks/taps while invisible */
 }
 
-.ctx-poster-link:hover .ctx-overlay {
+.ctx-poster-link:hover .ctx-overlay,
+.ctx-poster-link.ctx-touch-active .ctx-overlay {
     opacity: 1;
+    pointer-events: auto; /* re-enable when visible */
 }
 
 .ctx-genre {
@@ -198,7 +204,8 @@
     transition: all 0.2s ease;
 }
 
-.ctx-poster-link:hover .ctx-cta {
+.ctx-poster-link:hover .ctx-cta,
+.ctx-poster-link.ctx-touch-active .ctx-cta {
     background: #fff;
     color: #1a1a2e;
 }
